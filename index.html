@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rokku Labs - About</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        :root {
+
+            --bg-gradient: linear-gradient(90deg, #34200e, #0f2c32, #34200e);
+
+            --window-bg: #1e1e1e;
+
+            --text-main: #ffffff;
+            --text-muted: #ffffff;
+
+            --orange: #ff9100;
+            --cyan: #00e5ff;
+            --green: #a3e635;
+
+            --border: 3px solid #000000;
+
+            --shadow: 6px 6px 0px #000000;
+        }
+
+        [data-theme="light"] {
+
+            --bg-gradient: linear-gradient(90deg, #f6e0c6, #dde8df, #f6e0c6);
+
+            --window-bg: #ffffff;
+
+            --text-main: #000000;
+
+            --text-muted: #000000;
+        }
+
+        [data-theme="light"] .section-title {
+
+            color: #000000;
+
+            text-shadow: none;
+        }
+
+        @keyframes breathing {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+            padding: 0;
+
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background: var(--bg-gradient);
+
+            background-size: 200% 200%;
+
+            animation: breathing 15s ease infinite;
+
+            background-attachment: fixed;
+
+            min-height: 100vh;
+
+            font-family: 'Space Grotesk', sans-serif;
+
+            color: var(--text-main);
+
+            padding-bottom: 0;
+            
+            /* CONTENT PROTECTION: Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* CONTENT PROTECTION: Prevent image dragging and interaction */
+        img {
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo,
+        .btn,
+        .ebook-btn {
+
+            font-family: 'Bungee', cursive;
+
+            font-weight: normal;
+
+            text-transform: uppercase;
+        }
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 4%;
+
+            border-bottom: var(--border);
+
+            background-color: var(--window-bg);
+        }
+
+        .logo {
+
+            background-color: var(--green);
+
+            color: #000000;
+
+            padding: 8px 16px;
+
+            border: var(--border);
+
+            box-shadow: 4px 4px 0px #000000;
+
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle {
+
+            background-color: var(--window-bg);
+
+            border: var(--border);
+
+            color: var(--text-main);
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.2rem;
+
+            cursor: pointer;
+
+            box-shadow: 3px 3px 0px #000000;
+
+            transition: all 0.15s ease;
+        }
+
+        .theme-toggle:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 5px 5px 0px #000000;
+        }
+
+        .theme-toggle:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 1px 1px 0px #000000;
+        }
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: 60px auto;
+
+            padding: 0 20px;
+        }
+
+        .about-window {
+
+            background-color: var(--window-bg);
+
+            border: var(--border);
+
+            box-shadow: var(--shadow);
+
+            display: grid;
+
+            grid-template-columns: 280px 1fr;
+
+            margin-bottom: 60px;
+        }
+
+        .profile-aside {
+
+            background-color: var(--orange);
+
+            border-right: var(--border);
+
+            padding: 30px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .profile-frame {
+
+            width: 100%;
+
+            aspect-ratio: 1/1;
+
+            border: var(--border);
+
+            background-color: var(--window-bg);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .profile-logo {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .social-grid {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .social-btn {
+
+            width: 40px;
+            height: 40px;
+
+            background-color: var(--cyan);
+
+            border: var(--border);
+
+            color: #000000;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            font-size: 1.2rem;
+
+            box-shadow: 3px 3px 0px #000000;
+
+            transition: all 0.15s ease;
+        }
+
+        .social-btn:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 5px 5px 0px #000000;
+        }
+
+        .social-btn:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 1px 1px 0px #000000;
+        }
+
+        .portfolio-box {
+
+            background-color: var(--green);
+
+            color: #000000;
+
+            border: var(--border);
+
+            padding: 16px 24px;
+
+            font-family: 'Space Grotesk', sans-serif;
+
+            font-weight: 700;
+
+            font-size: 1rem;
+
+            box-shadow: 3px 3px 0px #000000;
+
+            transition: all 0.15s ease;
+
+            text-decoration: none;
+
+            display: inline-block;
+        }
+
+        .portfolio-box:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 5px 5px 0px #000000;
+        }
+
+        .portfolio-box:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 1px 1px 0px #000000;
+        }
+
+        .about-content {
+
+            padding: 40px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .about-content h1 {
+
+            font-size: 3.5rem;
+
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+
+            font-size: 1.05rem;
+
+            line-height: 1.6;
+
+            color: var(--text-muted);
+
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+
+            padding: 12px 24px;
+
+            border: var(--border);
+
+            color: #000000;
+
+            text-decoration: none;
+
+            box-shadow: 4px 4px 0px #000000;
+
+            font-size: 0.95rem;
+
+            transition: all 0.15s ease;
+
+            font-weight: bold;
+
+            display: inline-flex;
+
+            align-items: center;
+        }
+
+        .btn-action i {
+
+            margin-right: 8px;
+
+            font-size: 1.1rem;
+        }
+
+        .btn-action.orange-btn {
+
+            background-color: var(--orange);
+        }
+
+        .btn-action.discord-btn {
+
+            background-color: #5865F2;
+
+            color: #ffffff;
+        }
+
+        .btn-action:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 6px 6px 0px #000000;
+        }
+
+        .btn-action:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 2px 2px 0px #000000;
+        }
+
+        .contact-section {
+
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+
+            background-color: var(--window-bg);
+
+            border: var(--border);
+
+            box-shadow: 8px 8px 0px #000000;
+
+            padding: 40px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .contact-card p {
+
+            font-size: 1.05rem;
+
+            line-height: 1.6;
+
+            color: var(--text-muted);
+        }
+
+        .contact-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 10px;
+        }
+
+        .section-title {
+
+            font-size: 2.2rem;
+
+            margin-bottom: 25px;
+
+            text-shadow: 4px 4px 0px #000000;
+        }
+
+        .ebook-card {
+
+            background-color: #2b2b2b;
+
+            border: var(--border);
+
+            box-shadow: 8px 8px 0px #000000;
+
+            overflow: hidden;
+
+            padding: 0;
+        }
+
+        .ebook-image {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+
+            background-color: #2b2b2b;
+
+            border-bottom: var(--border);
+        }
+
+        .ebook-button-wrap {
+
+            background-color: #2b2b2b;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 18px;
+
+            margin-top: -12px;
+        }
+
+        .ebook-btn {
+
+            background-color: var(--orange);
+
+            color: #000000;
+
+            padding: 18px 60px;
+
+            font-size: 1.1rem;
+
+            border: var(--border);
+
+            box-shadow: 4px 4px 0px #000000;
+
+            text-decoration: none;
+
+            transition: all 0.15s ease;
+        }
+
+        .ebook-btn:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 6px 6px 0px #000000;
+        }
+
+        .ebook-btn:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 2px 2px 0px #000000;
+        }
+
+        .footer-bar {
+
+            width: 100%;
+
+            background: #1e1e1e;
+
+            border-top: var(--border);
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 0.95rem;
+
+            margin-top: 60px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+        .back-to-top {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            right: 25px;
+
+            width: 55px;
+            height: 55px;
+
+            background-color: var(--green);
+
+            color: #000000;
+
+            border: var(--border);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+
+            font-weight: bold;
+
+            box-shadow: 5px 5px 0px #000000;
+
+            z-index: 999;
+
+            transition: all 0.3s ease;
+
+            /* Hiding it by default */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        /* Class added by JS to show the button */
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+
+            transform: translate(-2px, -2px);
+
+            box-shadow: 7px 7px 0px #000000;
+        }
+
+        .back-to-top:active {
+
+            transform: translate(2px, 2px);
+
+            box-shadow: 2px 2px 0px #000000;
+        }
+
+        @media (max-width: 900px) {
+
+            .about-window {
+
+                grid-template-columns: 1fr;
+            }
+
+            .profile-aside {
+
+                border-right: none;
+
+                border-bottom: var(--border);
+            }
+
+            .contact-buttons {
+
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+<body id="top">
+
+    <header>
+
+        <div class="logo">
+            Rokku Labs
+        </div>
+
+        <button class="theme-toggle" id="themeToggle">
+            ☀
+        </button>
+
+    </header>
+
+    <main class="container">
+
+        <section class="about-window">
+
+            <aside class="profile-aside">
+
+                <div class="profile-frame">
+
+                    <img src="512x512.png"
+                    alt="Rokku Labs Logo"
+                    class="profile-logo">
+
+                </div>
+
+                <div class="portfolio-box">
+                    portfolio v1.0.0
+                </div>
+
+            </aside>
+
+            <article class="about-content">
+
+                <h1>ABOUT</h1>
+
+                <p>
+                    Formally rukunero, Rokku labs has been creating anime content for over 9 years. What started as a passion for anime turned into years of scripting, storytelling and anime recommendation that resonate with anime fans around the world.
+                </p>
+                
+            </article>
+
+        </section>
+
+        <section class="contact-section">
+
+            <h2 class="section-title">
+                CONTACT
+            </h2>
+
+            <div class="contact-card">
+
+                <p>
+                    For collaboration, partnership or any questions, feel free to reach out
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a href="mailto:contact@rokkulabs.com"
+                    class="btn-action orange-btn"
+                    style="pointer-events: auto;">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        contact@rokkulabs.com
+                    </a>
+
+                    <a href="https://discord.com/users/rokkulabs" 
+                    target="_blank" 
+                    class="btn-action discord-btn"
+                    style="pointer-events: auto;">
+
+                        <i class="fa-brands fa-discord"></i>
+
+                        @rokkulabs
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="contact-section">
+
+            <h2 class="section-title">
+                MY EBOOK
+            </h2>
+
+            <div class="contact-card ebook-card">
+
+                <img src="inspiration.jpg"
+                alt="Anime Creator Guide Ebook"
+                class="ebook-image">
+
+                <div class="ebook-button-wrap">
+
+                    <a href="https://ko-fi.com/s/17774a400e"
+                    target="_blank"
+                    class="ebook-btn"
+                    style="pointer-events: auto;">
+
+                        ORDER NOW
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="contact-section">
+
+            <h2 class="section-title">
+                MY SOCIALS
+            </h2>
+
+            <div class="contact-card">
+
+                <p>
+                    Connect with me on other platforms 👇
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a href="https://www.instagram.com/rukunerofr/"
+                    target="_blank"
+                    class="btn-action orange-btn"
+                    style="pointer-events: auto;">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        INSTAGRAM
+                    </a>
+
+                    <a href="https://www.tiktok.com/@rukunero"
+                    target="_blank"
+                    class="btn-action orange-btn"
+                    style="pointer-events: auto;">
+
+                        <i class="fa-brands fa-tiktok"></i>
+
+                        TIKTOK
+                    </a>
+
+                    <a href="https://www.youtube.com/@rukuneorv2/featured"
+                    target="_blank"
+                    class="btn-action orange-btn"
+                    style="pointer-events: auto;">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                        YOUTUBE
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <a href="#top" class="back-to-top" id="backToTopBtn" style="pointer-events: auto;">
+        ↑
+    </a>
+
+    <footer class="footer-bar">
+        © Copyright 2026, All Rights Reserved
+    </footer>
+
+    <script>
+        
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggleBtn.textContent = currentTheme === 'dark' ? '☀' : '🌙';
+
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggleBtn.textContent = theme === 'dark' ? '☀' : '🌙';
+        });
+
+        // Back to Top Button Logic
+        window.addEventListener('scroll', () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            if (scrollTop + clientHeight >= scrollHeight - 50) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // ==========================================
+        // CONTENT PROTECTION SCRIPTS
+        // ==========================================
+
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) { 
+            e.preventDefault(); 
+        });
+
+        // Disable common developer tools shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U)
+        document.addEventListener('keydown', function(e) {
+            if (
+                e.keyCode === 123 || // F12
+                (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+                (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+                (e.ctrlKey && e.shiftKey && e.keyCode === 67) || // Ctrl+Shift+C
+                (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+    </script>
+
+</body>
+</html>
